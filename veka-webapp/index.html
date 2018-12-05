@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebApplikation für VeKa-Center </title>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Eigene Script und Styles -->
+    <link href="assetes/css/style.css" rel="stylesheet">
+    <script src="assetes/js/functions.js"></script>
+    <script src="assetes/js/api.js"></script>
+    <script src="assetes/js/documents.js"></script>
+
+    <!-- Templates -->
+    <script id="documents" type="text/html">
+           <table class="table documentList">
+               <tr>
+                   <th width="20%">Document Id</th>
+                   <th width="50%">Name</th>
+                   <th width="15%">Rename</th>
+                   <th width="15%">Delete</th>
+               </tr>
+               {{#documents}}
+               <tr>
+                   <td class="{{documentId}}">{{documentId}}</td>
+                   <td class="{{name}}">{{name}}</td>
+                   <td class="rename">
+                       <a class="btn btn-secondary rename form-control" data-name={{name}} data-id="{{documentId}}" href="/documents/{{name}}">Rename</a>
+                   </td>
+                   <td class="delete">
+                       <a class="btn btn-primary delete form-control" href="/documents/{{documentId}}">Delete</a>
+                   </td>
+                </tr>
+                {{/documents}}
+           </table>
+    </script>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="site-title">WebApplikation für VeKa-Center</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navigation">
+                    <nav>
+                        <ul>
+                            <li><a class="route" href="index.html">Dokumente</a></li>
+                            <li><a class="route" href="municipalities.html">Gemeinden</a></li>
+                            <li><a class="route" href="translog.html">Transaktions-Logbuch</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="content">
+
+                    <h2>Dokumente</h2>
+
+                    <div class="search-document"></div>
+                        <form id="search-document" method="GET">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="col-form-label">Dokument suchen: </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="name" class="form-control" placeholder="Name"  type="text" />
+                                </div>
+                                <div class="col-md-2">
+                                    <input class="btn btn-primary" type="submit" value="Suchen" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="add-document">
+                        <form action="/" id="add-document" method="GET">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="name">Dokument hinzufügen: </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" />
+                                </div>
+                                <div class="col-md-2">
+                                    <input class="btn btn-primary" type="submit" value="Hinzufügen" />
+                                </div>
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="list-of-documents">
+                        <h5>Dokumente:</h5>
+                        <div id="documentList">
+                            <!-- wir per Ajax geladen -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

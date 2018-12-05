@@ -1,0 +1,108 @@
+/**
+ *  Stylesheet für WebApplikation für VeKa-Center
+ *
+ *  @author Janick Michot
+ *  @date 05.12.18
+ */
+
+body,
+html {
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    border-top: 3px solid #5584b5;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.row {
+    margin: 30px 0 0;
+}
+
+.navigation {
+
+}
+
+.navigation ul {
+    list-style: none;
+}
+.navigation li {
+    width: 100%;
+    background-color: #eee;
+    padding: 5px;
+    margin: 0 0 20px;
+}
+
+
+table {
+    width: 100%;
+    font-size: 0.9em;
+    table-layout: fixed;
+}
+td, th {
+    border: 1px solid #bbb;
+    padding: .3rem !important;
+    vertical-align: middle !important;
+}
+th {
+    background-color: #eee;
+}
+
+.add-icon {
+    color: green;
+    font-weight: 900;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+tr.add td {
+    text-align: center;
+}
+
+table input[type=number] {
+    width: 100%;
+}
+
+table .btn {
+    font-size: 0.9em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.form-control, .btn {
+    padding: .25rem .5rem;
+    height: auto;
+}
+
+.edit {
+    padding: 1px;
+    height: auto;
+    line-height: 5px;
+    background-color: #ccc;
+    border-color: #bbb;
+    float: right;
+    display: none;
+}
+.edit img.icon {
+    font-size: 12px;
+    height: 15px;
+    width: 15px;
+}
+
+td:hover .edit {
+    display:block;
+}

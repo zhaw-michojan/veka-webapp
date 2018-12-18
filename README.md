@@ -13,6 +13,9 @@ Dies ist von den Studierenden selber erstellte WebbApplikation für das Umsystem
   * [Inhaltsverzeichnis](#inhaltsverzeichnis)
   * [Aufgabenstellung](#aufgabenstellung)
   * [Beschreibung](#beschreibung)
+    + [XAMPP](#xampp)
+    + [Schnittstelle zur API](#schnittstelle-zur-api)
+    + [Cross-origin resource sharing](#cross-origin-resource-sharing-cors)
 
 
 ## Aufgabenstellung
@@ -27,12 +30,6 @@ Die WebApplikation für das VeKa-Center wurde in der **XAMPP-Umgebung** entwicke
 ### Schnittstelle zur API
 
 Damit die WebApplikation auf den E-Umzug zugreifen kann, muss die entsprechende URI im File [api.js](veka-webapp/assetes/js/api.js) angegeben werden.
-
-
-
-
-
-
 
 ### Cross-origin resource sharing (CORS)
 

@@ -71,6 +71,7 @@ var muncipalities = {
         // Name der Gemeinde auslesen
         var municipalityName = $(this).find('input[name="name"]').val();
 
+        // GET-Call an den E-Umzug über die Funktion `api.getURI`
         $.get(api.getURI('/municipalities/' + municipalityName), function(data) {
             // Daten zu den Gemeinden zusätzlich als String in das Array schreiben,
             // wird später für die Bearbeitung von Gemeinden benötigt
@@ -105,6 +106,8 @@ var muncipalities = {
         // Gemeinde-Daten auslesen und umformen
         data = JSON.stringify($(this).serializeObject());
 
+        // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+        // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
         $.ajax({
             url: api.getURI('/municipalities'),
             type: 'POST',
@@ -119,9 +122,6 @@ var muncipalities = {
             alert("Gemeinde konnte nicht erstellt werden");
         });
     },
-
-
-
 
     /**
      * Umbenennen einer Gemeinde
@@ -188,7 +188,8 @@ var muncipalities = {
             // neuen Wert eintragen mit Key Value Paar
             municipality[name] = newValue;
 
-            // Ajax Call um auf API zuzugreifen
+            // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+            // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
             $.ajax({
                 url: api.getURI(uri),
                 type: 'PUT',
@@ -217,6 +218,8 @@ var muncipalities = {
         // URI Auslesen aus Attribut href
         var uri = $(this).attr('href');
 
+        // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+        // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
         $.ajax({
             url: api.getURI(uri),
             type: 'DELETE',

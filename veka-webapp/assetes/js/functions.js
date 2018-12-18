@@ -1,4 +1,6 @@
 /**
+ * Fremde Funktion, die es erlaubt, ein Objekt in JSON zu serializieren
+ *
  * https://gist.github.com/rambabusaravanan/8eebfd7a9c828fd6121c8d8a48e08962
  *
  * Usage: var json = $('#form-login').serializeObject();

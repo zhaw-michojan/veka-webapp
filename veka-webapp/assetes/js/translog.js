@@ -16,6 +16,7 @@ var translog = {
     init: function() {
         $(document).ready(function() {
 
+            // Funktion aufrufen, die alle Status von der API holt
             translog.getAllStatus();
 
             // alle Events instanzieren
@@ -89,8 +90,6 @@ var translog = {
         $.get(api.getURI('/status/' + statusName + '/persons'), function(data) {
             // TransaktionsLog-Daten vorbereiten
             var translog = {'translog': data, 'status': statusName};
-
-            console.log(translog);
 
             // Variablen mit Mustache ins Template eintragen
             var html = Mustache.to_html($('#personByStatusTemplate').html(), translog);

@@ -47,7 +47,7 @@ var dokumente = {
             dokumente.$container.html(html);
       }).fail(function() {
             // Fehlermeldung wenn EUmzug nicht erreicht wird
-            alert("EUmzug konnte nicht erreicht werden");
+            alert("E-Umzug konnte nicht erreicht werden");
         });
     },
 
@@ -89,6 +89,8 @@ var dokumente = {
         // Daten auslesen und umformen
         data = JSON.stringify($(this).serializeObject());
 
+        // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+        // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
         $.ajax({
             url: api.getURI('/documents'),
             type: 'POST',
@@ -96,7 +98,7 @@ var dokumente = {
             dataType: "json",
             data: data,
             success: function(result) {
-                // Dokumentenliste neu laden
+                // Wenn erfolgreich neues Dokument erstellt -> Dokumentenliste neu laden
                 dokumente.loadDocuments();
             }
         });
@@ -113,6 +115,8 @@ var dokumente = {
         // uri Auslesen
         var uri = $(this).attr('href');
 
+        // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+        // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
         $.ajax({
             url: api.getURI(uri),
             type: 'DELETE',
@@ -142,6 +146,8 @@ var dokumente = {
 
         // Falls Name eingetragen wird Ajax-Call machen
         if(newName !== null){
+            // AJAX-Call an den E-Umzug entsprechend der `api.getURI`-Funktion
+            // REST-Controller des E-Umzugs verlangt contentTyp `application/json`
             $.ajax({
                 url: api.getURI(uri),
                 type: 'PUT',
@@ -162,9 +168,3 @@ var dokumente = {
 
 // Init-Funktion aufrufen
 dokumente.init();
-
-
-
-
-
-
